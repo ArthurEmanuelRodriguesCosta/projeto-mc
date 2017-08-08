@@ -11,6 +11,6 @@ Os parâmetros válidos para escolha dos algoritmos são:
   - SelectionSort
   - InsertionSort
 
-Em input.txt, cada linha possui umas sequencia de números separados por um espaço em branco. O primeiro número é o id da sequência, seguido pelos números que a compõem.
+Em input.txt, cada linha possui umas sequencia de números separados por um espaço em branco. O primeiro número é o id da sequência, seguido pelos números que a compõe.
 
 No arquivo output.txt, serão armazenados: o id da lista que foi ordenada, o algoritmo escolhido e o tempo de execução.
