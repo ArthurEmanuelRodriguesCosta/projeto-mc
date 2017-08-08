@@ -1,0 +1,5 @@
+list_id, algorithm, time
+1,SelectionSort,25000
+2,SelectionSort,12000
+3,SelectionSort,11000
+4,SelectionSort,13000

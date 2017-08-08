@@ -1,4 +1,11 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 
 public class OrdenaTudor<T extends Comparable<T>> {
 	
@@ -6,13 +13,6 @@ public class OrdenaTudor<T extends Comparable<T>> {
 		T temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
-	}
-	
-	public void bubbleSort(T[] array, int leftIndex, int rightIndex) {
-		for (int i = 0; i <= rightIndex - leftIndex; i++)
-			for (int j = leftIndex; j <= rightIndex - i - 1; j++)
-				if (array[j].compareTo(array[j + 1]) > 0)
-					swap(array, j, j + 1);
 	}
 	
 	public void insertionSort(T[] array, int leftIndex, int rightIndex) {
@@ -104,12 +104,51 @@ public class OrdenaTudor<T extends Comparable<T>> {
 		return i;
 	}
 	
-	public static void main(String[] args) {
-		Integer[] v = new Integer[]{5,4,3,2,1};
-		OrdenaTudor<Integer> s = new OrdenaTudor<Integer>();
-		s.mergeSort(v, 0, v.length - 1);
-		System.out.println(Arrays.toString(v));
+	public static void main(String[] args) {			
+	    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	    OrdenaTudor<Double> sorter = new OrdenaTudor<Double>();
+
+	    System.out.println("list_id, algorithm, time");
+
+	    String line = null;
+	    try {
+	        while ((line = in.readLine()) != null) {
+	            String[] a = line.split(" ");
+				
+		    List<Double> l = new ArrayList<>();
+		    for (String e : a)
+		        l.add(Double.parseDouble(e));
+				
+		    Double[] unidadeExp = new Double[l.size()];
+		    unidadeExp = l.toArray(unidadeExp);
+				
+		    long startTime = 0;
+		    long estimatedTime = 0;
 		
+		    if (args[0].equals("QuickSort")) {
+					startTime = System.nanoTime();
+					sorter.quickSort(unidadeExp, 0, unidadeExp.length - 1);
+					estimatedTime = System.nanoTime() - startTime;
+				} else if (args[0].equals("MergeSort")) {
+					startTime = System.nanoTime();
+					sorter.mergeSort(unidadeExp, 0, unidadeExp.length - 1);
+					estimatedTime = System.nanoTime() - startTime;
+				} else if (args[0].equals("InsertionSort")) {
+					startTime = System.nanoTime();
+					sorter.insertionSort(unidadeExp, 0, unidadeExp.length - 1);
+					estimatedTime = System.nanoTime() - startTime;
+				} else if (args[0].equals("SelectionSort")) {
+					startTime = System.nanoTime();
+					sorter.selectionSort(unidadeExp, 0, unidadeExp.length - 1);
+					estimatedTime = System.nanoTime() - startTime;
+				}
+				
+			System.out.println(a[0] + "," + args[0] + "," + estimatedTime);
+		}
+	    } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	    }
 	}
 }
 
