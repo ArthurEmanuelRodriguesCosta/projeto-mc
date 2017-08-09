@@ -1,6 +1,6 @@
 # projeto-mc
 Projeto da disciplina metodologia científica com o fim de escrever um artigo que analise o desempenho de algoritmos de ordenação.
-
+Desenvolvido por Arthur Emanuel e Arthur Vinícius.
 
 
 Para executar com um algoritmo específico (por enquanto). Execute o seguinte comando: ./ordenar AlgoritmoDeOrdenação < input.txt > output.txt
